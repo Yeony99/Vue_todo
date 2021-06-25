@@ -1,16 +1,47 @@
 <template>
   <div>
     <!-- TodoList component 렌더링 -->
-    <todo-list></todo-list>
+    <TodoList v-bind:todos="todos"></TodoList>
   </div>
 </template>
 
 <script>
-import TodoList from './components/TodoList';
-
+import TodoList from './components/TodoList'
 export default {
+  name: 'app',
   components: {
-    TodoList,
+    TodoList
+  },
+  data() {
+    return {
+      todos: [
+        {
+          id: 1,
+          title: '자바스크립트 공부',
+          completed: false,
+        },
+        {
+          id: 2,
+          title: '빨래하기',
+          completed: false,
+        },
+        {
+          id: 3,
+          title: '장보기',
+          completed: false,
+        },
+        {
+          id: 4,
+          title: '청소기 돌리기',
+          completed: false,
+        },
+        {
+          i: 5,
+          title: '은행 다녀오기',
+          completed: false,
+        },
+      ],
+    };
   },
 };
 </script>

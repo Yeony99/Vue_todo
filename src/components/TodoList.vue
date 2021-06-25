@@ -1,17 +1,25 @@
 <template>
   <div>
+    <h2>My todolist</h2>
     <ul>
-        <li> Todo A </li> 
-        <li> Todo B </li> 
-        <li> Todo C </li> 
-    </ul> 
+      <li v-bind:key="todo.id" v-for="todo in todos">
+        <Todo v-bind:todo="todo"/>
+      </li>
+
+    </ul>
   </div>
 </template>
-
-<script type = "text/javascript" >
-
+<script>
+import Todo from './Todo';
 export default {
-};
+  name: 'Todos',
+  components: {
+    Todo
+  },
+  props: [
+    "todos"
+  ]
+}
 </script>
-<style>
+<style scoped>
 </style>
