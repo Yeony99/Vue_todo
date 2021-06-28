@@ -1,12 +1,15 @@
 <template>
   <div>
     <!-- TodoList component 렌더링 -->
-    <TodoList v-bind:todos="todos"></TodoList>
+    <TodoList v-bind:todos="todos"/>
+    <AddTodo v-on:add-todo="addTodo"/>
   </div>
 </template>
 
 <script>
 import TodoList from './components/TodoList'
+import AddTodo from './components/AddTodo'
+
 export default {
   name: 'app',
   components: {
