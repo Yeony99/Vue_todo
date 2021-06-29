@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- TodoList component 렌더링 -->
-    <TodoList v-bind:todos="todos"/>
+    <TodoList v-bind:todos="todos" v-on:delete-todo="deleteTodo"/>
     <AddTodo v-on:add-todo="addTodo"/>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
   name: 'app',
   components: {
     TodoList,
-    AddTodo,  
+    AddTodo,
   },
   data() {
     return {
@@ -50,8 +50,17 @@ export default {
   methods: {
     addTodo(newTodoObj) {
       this.todos = [...this.todos, newTodoObj];
-    }
+    },
+    deleteTodo(todoId) {
+      this.todos = this.todos.filter(todos => todos.id !== todoId);
+      localStorage.removeItem(todoId);
+    },
   },
+  mounted() {
+    if(localStorage.getItem("title")) {
+      
+    }
+  }
 };
 </script>
 

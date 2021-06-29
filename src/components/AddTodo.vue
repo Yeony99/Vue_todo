@@ -27,6 +27,8 @@ export default {
                 //바인딩된 데이터
                 completed: false,
             }
+
+            localStorage.setItem(newTodoObj.id, newTodoObj.title);
             this.$emit('add-todo', newTodoObj); 
             //$ emit('발생시킬 이벤트', 넘길 데이터)
             this.title =''; 
