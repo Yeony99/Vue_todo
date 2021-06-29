@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form @submit="addTodo">
+        <form @submit="addTodo"> <!--v-on-->
             <input type="text" v-model="title" name="title">
             <button type="submit">Add</button>
         </form>
@@ -14,7 +14,7 @@ export default {
     name: 'AddTodo',
     data() {
         return {
-            title: ''
+            title: '',
         };
     },
     methods: {
@@ -23,11 +23,14 @@ export default {
 
             const newTodoObj = {
                 id: uuid.v4(),
-                title : this.title, //바인딩된 데이터
-                completed: fasle
+                title : this.title, 
+                //바인딩된 데이터
+                completed: false,
             }
-            this.$emit('add-todo', newTodoObj);
-            this.title =''; //전송한 뒤에 title 비우기
+            this.$emit('add-todo', newTodoObj); 
+            //$ emit('발생시킬 이벤트', 넘길 데이터)
+            this.title =''; 
+            //전송한 뒤에 title 비우기
         }
     },
 };

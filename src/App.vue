@@ -13,7 +13,8 @@ import AddTodo from './components/AddTodo'
 export default {
   name: 'app',
   components: {
-    TodoList
+    TodoList,
+    AddTodo,  
   },
   data() {
     return {
@@ -39,12 +40,17 @@ export default {
           completed: false,
         },
         {
-          i: 5,
+          id: 5,
           title: '은행 다녀오기',
           completed: false,
         },
       ],
     };
+  },
+  methods: {
+    addTodo(newTodoObj) {
+      this.todos = [...this.todos, newTodoObj];
+    }
   },
 };
 </script>
